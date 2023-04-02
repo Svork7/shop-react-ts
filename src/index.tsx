@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import {HashRouter} from "react-router-dom";
-import {store} from "./Store/store";
-import {Provider} from "react-redux";
-export const modalRoot = document.getElementById("modal") as Element
-const root = ReactDOM.createRoot(
-	document.getElementById("root") as HTMLElement
-);
-root.render(
-	<HashRouter>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</HashRouter>
-);
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { persistor, store } from './store/store';
+import App from './App';
+import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
-reportWebVitals();
+const container = document.getElementById('root')!;
+const root = createRoot(container);
+
+root.render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
+);

@@ -1,0 +1,23 @@
+@import '../../misc/vars.scss';
+
+.breadcrumbs {
+  display: flex;
+  margin-bottom: 50px;
+
+  div {
+    padding: 0 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 120%;
+    color: $dark-gray;
+
+    &:not(:last-child) {
+      border-right: 1px dotted $dark-gray;
+    }
+
+    &:last-child {
+      color: blue;
+      opacity: 0.7;
+    }
+  }
+}

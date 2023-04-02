@@ -1,40 +1,45 @@
-import React, {useEffect} from "react";
-import "./App.css";
-import {Menu} from "./Components/Menu/menu";
-import "./Styles/normalize.scss"
-import Header from "./Components/Header/header";
-import {AppRoutes} from "./Routes/appRoutes";
-import {Footer} from "./Components/Footer/footer";
-import data from "./db.json"
-import {useAppDispatch} from "./Store/hooks/useAppDispatch";
-import {ProductDataType, setCatalogData} from "./Store/slices/productListFilter";
-import {setProductData} from "./Store/slices/productListSlice";
-import {useLocalStorage} from "usehooks-ts";
+import { useEffect } from 'react';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { CartPage } from './page/cartPage/CartPage';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { getProducts } from './store/reducers/productsSlice';
+import products from './products/products.json'
+import { ProductPage } from './page/productPage/ProductPage';
+import { CatalogPage } from './page/catalogPage/CatalogPage';
+import { AdminPage } from './page/adminPage/AdminPage';
 
 function App() {
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const location = useLocation();
+	const productsInState = useAppSelector(state => state.products.products);
 
-	const dispatch = useAppDispatch()
-	const [cardItems,] = useLocalStorage<Array<ProductDataType>>("cardItems", [])
-	const isCardItems = cardItems.length > 0
-
-	useEffect(()=>{
-		if(isCardItems) {
-			dispatch(setProductData({productsList : cardItems }))
-			dispatch(setCatalogData({productsList : cardItems}))
-		} else {
-			dispatch(setProductData({productsList : data.productsList as Array<ProductDataType>}))
-			dispatch(setCatalogData({productsList : data.productsList as Array<ProductDataType>}))
+	useEffect(() => {
+		if (productsInState.length === 0) {
+			dispatch(getProducts(products));		
 		}
+	}, [dispatch, productsInState]);
 
-	},[dispatch])
+	useEffect(() => {
+		if (location.pathname === '/') {
+			navigate('/catalog');
+		}
+	}, [navigate, location]);
 
 	return (
-		<React.Fragment>
-			<Menu/>
-			<Header/>
-			<AppRoutes/>
-			<Footer/>
-		</React.Fragment>
+		<>
+			{location.pathname !== '/admin' && <Header />}
+			<Routes>
+				<Route path="catalog" element={<CatalogPage />} />
+				<Route path="admin" element={<AdminPage />} />
+				<Route path="cart" element={<CartPage />} />
+				<Route path="product/:id" element={<ProductPage />} />
+				<Route path="*" element={<div>Страница не найдена</div>} />
+			</Routes>
+			{location.pathname !== '/admin' && <Footer />}
+		</>
 	);
 }
 
