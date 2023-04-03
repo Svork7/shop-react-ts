@@ -22,7 +22,7 @@ export const CatalogPage = () => {
   const maxCost = useAppSelector((state) => state.filters.maxCost)
   const sortType = useAppSelector((state) => state.filters.sortType)
 
-  const [filteredSortedProducts, setFiltredSortedProducts] = useState(products)
+  const [filteredSortedProducts, setFilteredSortedProducts] = useState(products)
   const [onPage, setOnPage] = useState(resize1080 ? 9 : 6)
 
   const pages = Math.ceil(filteredSortedProducts.length / onPage)
@@ -51,22 +51,22 @@ export const CatalogPage = () => {
     switch (sortType) {
       case 1:
         filteredProducts.sort((a, b) => (a.title! < b.title! ? 1 : -1))
-        setFiltredSortedProducts(filteredProducts)
+        setFilteredSortedProducts(filteredProducts)
         break
       case 2:
         filteredProducts.sort((a, b) => (a.title! > b.title! ? 1 : -1))
-        setFiltredSortedProducts(filteredProducts)
+        setFilteredSortedProducts(filteredProducts)
         break
       case 3:
         filteredProducts.sort((a, b) => (a.price! < b.price! ? 1 : -1))
-        setFiltredSortedProducts(filteredProducts)
+        setFilteredSortedProducts(filteredProducts)
         break
       case 4:
         filteredProducts.sort((a, b) => (a.price! > b.price! ? 1 : -1))
-        setFiltredSortedProducts(filteredProducts)
+        setFilteredSortedProducts(filteredProducts)
         break
       default:
-        setFiltredSortedProducts(filteredProducts)
+        setFilteredSortedProducts(filteredProducts)
         break
     }
     setPage(1)

@@ -1,12 +1,16 @@
-import { CardStl } from './card.styled'
-import { ReactComponent as CartSVG } from '../../assets/icons/buttonCart.svg'
-import { ReactComponent as VolumeMlSVG } from '../../assets/icons/volumeML.svg'
-import { ReactComponent as VolumeGSVG } from '../../assets/icons/volumeG.svg'
-import { Button } from '../../ui/Button'
-import { ProductType } from '../../store/reducers/productsSlice'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../store/hooks'
+
 import { addProduct } from '../../store/reducers/cartSlice'
+import { ProductType } from '../../store/reducers/productsSlice'
+import { useAppDispatch } from '../../store/hooks'
+
+import { Button } from '../../ui/Button'
+
+import { CardStl } from './card.styled'
+
+import { ReactComponent as CartSVG } from '../../assets/icons/buttonCart.svg'
+import { ReactComponent as VolumeGSVG } from '../../assets/icons/volumeG.svg'
+import { ReactComponent as VolumeMlSVG } from '../../assets/icons/volumeML.svg'
 
 export type CardType = {
   product: ProductType

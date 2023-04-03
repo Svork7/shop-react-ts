@@ -2,9 +2,11 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../../ui/Button'
 import ContainerStl from '../../helperComponentsStyled/Container'
+
+import { ThanksForOrderStl } from './thanksForOrder.styled'
+
 import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg'
 import { ReactComponent as CompleteSVG } from '../../assets/icons/complete.svg'
-import { ThanksForOrderStl } from './thanksForOrder.styled'
 
 /*Этот компонент показывает модальное окно после успешного оформления заказа.
  */

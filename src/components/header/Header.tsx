@@ -1,3 +1,6 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Container from '../../helperComponentsStyled/Container'
 import { HeaderStl } from './header.styled'
 import { HeaderNav } from './headerComponents/HeaderNav'
@@ -9,7 +12,6 @@ import { Button } from '../../ui/Button'
 import { SearchForm } from '../../ui/SearchForm'
 import { HeaderOrderCall } from './headerComponents/HeaderOrderCall'
 import { HeaderCart } from './headerComponents/HeaderCart'
-import { useNavigate } from 'react-router-dom'
 import { useResize } from '../../hooks/useResize'
 import { HeaderMenu } from './headerComponents/HeaderMenu'
 import { Header420Bottom } from './headerComponents/Header420Bottom'
@@ -55,7 +57,7 @@ export const Header = () => {
           )}
           {resize1250 && <HeaderOrderCall />}
           {resize640 && (
-            <Button text="Прайс&nbsp;-&nbsp;лист">
+            <Button text="Прайс - лист">
               <DownloadSVG />
             </Button>
           )}

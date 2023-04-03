@@ -1,14 +1,13 @@
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import Container from '../../helperComponentsStyled/Container'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { addProduct } from '../../store/reducers/cartSlice'
 
+import Container from '../../helperComponentsStyled/Container'
 import { Button } from '../../ui/Button'
 import { Counter } from '../../components/counter/Counter'
 import { BreadCrumbs } from '../../components/breadCrumbs/BreadCrumbs'
-
-import { ProductPageStl } from './productPage.styled'
 
 import { ReactComponent as CartSVG } from '../../assets/icons/buttonCart.svg'
 import { ReactComponent as ShareSVG } from '../../assets/icons/share.svg'
@@ -17,8 +16,8 @@ import { ReactComponent as DropDownSVG } from '../../assets/icons/arrowDropdown.
 import { ReactComponent as VolumeMlSVG } from '../../assets/icons/volumeML.svg'
 import { ReactComponent as VolumeGSVG } from '../../assets/icons/volumeG.svg'
 
-import { useState } from 'react'
 import { useResize } from '../../hooks/useResize'
+import { ProductPageStl } from './productPage.styled'
 
 export const ProductPage = () => {
   const [resize600] = useResize(600)
