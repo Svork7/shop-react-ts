@@ -20,7 +20,7 @@ import cart from './reducers/cartSlice'
 import filters from './reducers/filtersSlice'
 
 const persistConfig = {
-  key: 'sultan-shop3',
+  key: 'sultan-shop4',
   storage,
 }
 
