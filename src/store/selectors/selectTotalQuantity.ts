@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { CartType } from '../../store/reducers/cartSlice'
 
-// Selector to compute the total quantity of products in the cart
+// селектор для подсчета количества товаров в корзине
 export const selectTotalQuantity = createSelector(
   (state: RootState) => state.cart,
   (cart: CartType) =>
