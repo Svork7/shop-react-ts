@@ -70,8 +70,7 @@ export const Filter = (props: FilterType) => {
 
   return (
     <FilterStl isActive={isActive} onClick={handleClick}>
-      <span>Тип ухода</span>
-      <span>{props.text}</span>
+      <span>Уход {props.text}</span>
     </FilterStl>
   )
 }
