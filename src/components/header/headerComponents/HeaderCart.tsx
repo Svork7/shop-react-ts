@@ -1,5 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../../store/hooks'
+import { useSelector } from 'react-redux'
+import { selectTotalQuantity } from '../../../store/selectors/selectTotalQuantity'
+
 import { calculateAmount } from '../../../helpers/calculateAmount'
 import styled from 'styled-components'
 import { ReactComponent as CartSVG } from '../../../assets/icons/cart.svg'
@@ -55,7 +58,7 @@ const HeaderCartStl = styled.div`
 
 export const HeaderCart = () => {
   const navigate = useNavigate()
-
+  const totalQuantity = useSelector(selectTotalQuantity)
   const handleClick = () => {
     navigate('/cart')
   }
@@ -68,7 +71,7 @@ export const HeaderCart = () => {
     <HeaderCartStl onClick={handleClick}>
       <div className="left">
         <CartSVG />
-        <span>{cart.idList.length}</span>
+        <span>{totalQuantity}</span>
       </div>
       <div className="right">
         <span className="cart">Корзина</span>

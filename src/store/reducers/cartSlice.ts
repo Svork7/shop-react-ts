@@ -24,14 +24,18 @@ export const productsSlice = createSlice({
       state,
       action: PayloadAction<{ product: ProductType; count?: number }>
     ) => {
-      let count: number
-      if (!action.payload.count) {
-        count = 1
+      const productId = action.payload.product.id!
+      const count = action.payload.count ?? 1
+      const existingProduct = state.products.find(
+        (p) => p.product.id === productId
+      )
+
+      if (existingProduct) {
+        existingProduct.count += count
       } else {
-        count = action.payload.count
+        state.idList.push(productId)
+        state.products.push({ product: action.payload.product, count: count })
       }
-      state.idList.push(action.payload.product.id!)
-      state.products.push({ product: action.payload.product, count: count })
     },
     incrementProductCount: (state, action: PayloadAction<{ id: string }>) => {
       const product = state.products.find(
