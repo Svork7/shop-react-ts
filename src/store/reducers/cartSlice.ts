@@ -30,10 +30,8 @@ export const productsSlice = createSlice({
       } else {
         count = action.payload.count
       }
-      if (!state.idList.includes(action.payload.product.id!)) {
-        state.idList.push(action.payload.product.id!)
-        state.products.push({ product: action.payload.product, count: count })
-      }
+      state.idList.push(action.payload.product.id!)
+      state.products.push({ product: action.payload.product, count: count })
     },
     incrementProductCount: (state, action: PayloadAction<{ id: string }>) => {
       const product = state.products.find(
