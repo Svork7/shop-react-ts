@@ -81,8 +81,8 @@ export function ProductForm({
               </label>
               <label className="form__label">
                 <Field
-                  id="manufacturer"
-                  name="manufacturer"
+                  id="manufactur"
+                  name="manufactur"
                   type="text"
                   placeholder="Производитель"
                   onChange={handleChange}
@@ -112,8 +112,8 @@ export function ProductForm({
               <div className="form__volume">
                 <label className="form__label">
                   <Field
-                    id="volume"
-                    name="volume"
+                    id="size"
+                    name="size"
                     type="text"
                     placeholder="Вес / Объем"
                     onChange={handleChange}
@@ -123,7 +123,8 @@ export function ProductForm({
                 <label className="form__label">
                   <Field
                     type="radio"
-                    name="type_volume"
+                    name="sizeType"
+                    onChange={handleChange}
                     checked={values.sizeType === 'Вес'}
                     value={'Вес'}
                   />
@@ -132,7 +133,8 @@ export function ProductForm({
                 <label className="form__label">
                   <Field
                     type="radio"
-                    name="type_volume"
+                    name="sizeType"
+                    onChange={handleChange}
                     checked={values.sizeType === 'Объём'}
                     value={'Объём'}
                   />
@@ -146,7 +148,8 @@ export function ProductForm({
                     <label className="form__label form__label--care">
                       <Field
                         type="checkbox"
-                        name="itemType"
+                        name="type_care"
+                        onChange={handleChange}
                         value={value.typeCare}
                         checked={values.type_care?.includes(value.typeCare)}
                       />

@@ -41,7 +41,7 @@ export const AdminPage = () => {
   return (
     <AdminPageStl>
       <Container columns>
-        <h1 className="admin__title">Админка</h1>
+        <h1 className="admin__title">Административная панель</h1>
         <div className="admin">
           <ProductForm product={productValues} />
           <div className="product__title">
