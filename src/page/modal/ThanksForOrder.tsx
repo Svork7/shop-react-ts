@@ -23,7 +23,7 @@ export const ThanksForOrder = () => {
 
   return (
     <ThanksForOrderStl>
-      <ContainerStl maxWidth="735px" padding="36px" columns>
+      <ContainerStl maxWidth="730px" padding="36px" columns>
         <Button
           text=""
           padding="0"

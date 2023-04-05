@@ -52,7 +52,7 @@ export const Filter = (props: FilterType) => {
     state.filters.typeCare.filter((typeCare) => typeCare === props.typeCare)
   )
   // Определяем состояние
-  const [isActive, toggleIsActive] = useState(!!typeCare)
+  const [isActive, setIsActive] = useState(!!typeCare)
   const dispatch = useAppDispatch()
   // Обработчик клика, убираем из стора если активен и добавляем если нет
   const handleClick = () => {
@@ -61,11 +61,11 @@ export const Filter = (props: FilterType) => {
     } else {
       dispatch(removeTypeCare({ typeCare: props.typeCare }))
     }
-    toggleIsActive((prev) => !prev)
+    setIsActive((prev) => !prev)
   }
 
   useEffect(() => {
-    toggleIsActive(!!typeCare)
+    setIsActive(!!typeCare)
   }, [typeCare])
 
   return (
