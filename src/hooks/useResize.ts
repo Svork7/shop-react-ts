@@ -6,14 +6,7 @@ export const useResize = (size: number) => {
   const [is, setIs] = useState(isSize)
 
   useEffect(() => {
-    const handleResize = () => {
-      setIs(isSize)
-    }
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    setIs(isSize)
   }, [isSize])
 
   return [is]

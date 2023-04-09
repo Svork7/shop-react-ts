@@ -8,7 +8,7 @@ import { getProducts } from './store/reducers/productsSlice'
 import products from './products/products.json'
 import { ProductPage } from './page/productPage/ProductPage'
 import { CatalogPage } from './page/catalogPage/CatalogPage'
-import { AdminPage } from './page/adminPage/AdminPage'
+import { AdminPanel } from './page/adminPanel/AdminPanel'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -33,7 +33,7 @@ function App() {
       {location.pathname !== '/admin' && <Header />}
       <Routes>
         <Route path="catalog" element={<CatalogPage />} />
-        <Route path="admin" element={<AdminPage />} />
+        <Route path="admin" element={<AdminPanel />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="product/:id" element={<ProductPage />} />
         <Route path="*" element={<div>Страница не найдена</div>} />

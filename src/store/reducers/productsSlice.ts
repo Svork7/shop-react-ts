@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getUniqueManufactures } from '../../helpers/getUniqueManufactures'
 
 export type ProductType = {
-  id?: string
+  id: string
   url?: string
   title?: string
   sizeType?: string

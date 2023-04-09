@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AdminPageStl = styled.section`
+export const AdminPanelStl = styled.section`
   padding: 30px 0;
   .admin__title {
     margin-bottom: 30px;

@@ -1,11 +1,11 @@
-import { Field, Form, Formik } from 'formik'
+import { useState, useEffect } from 'react'
+import { Form, Formik, Field } from 'formik'
+import { v4 as uuid } from 'uuid'
 import { ProductType, addProduct } from '../../../store/reducers/productsSlice'
 import { useAppDispatch } from '../../../store/hooks'
-import { ProductFormStl } from './productForm.styled'
 import { Button } from '../../../ui/Button'
 import { careArray } from '../../../helpers/typeCare'
-import { v4 as uuid } from 'uuid'
-import { useEffect, useState } from 'react'
+import { ProductFormStl } from './productForm.styled'
 
 interface ProductFormProps {
   product: ProductType
